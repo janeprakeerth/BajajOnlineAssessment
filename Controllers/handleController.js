@@ -57,6 +57,7 @@ exports.handlePost = async(req,res,next)=>{
         }
         var largestChar = largestCharacter(charArray)
         var largestCharArray = []
+        if(largestChar.length!=0)
         largestCharArray.push(largestChar)
         res.status(200).json({
             is_success:true,
