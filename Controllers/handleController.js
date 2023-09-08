@@ -30,6 +30,11 @@ exports.handlePost = async(req,res,next)=>{
                 is_success:false,
                 message:"Please send data as a request body to this post route"
             })
+        }else if(typeof(input)!=Array){
+            res.status(404).json({
+                is_success:false,
+                message:"Data should be in arra format"
+            })
         }
         const charArray = []
         const numArray = []
