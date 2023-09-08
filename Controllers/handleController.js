@@ -25,6 +25,12 @@ exports.handleget = async(req,res)=>{
 exports.handlePost = async(req,res,next)=>{
     try{
         const input = req.body.data
+        if(!input){
+            res.status(404).json({
+                is_success:false,
+                message:"Please send data as a request body to this post route"
+            })
+        }
         const charArray = []
         const numArray = []
         console.log(input.length)
