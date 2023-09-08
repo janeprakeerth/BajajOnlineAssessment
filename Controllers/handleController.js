@@ -45,7 +45,8 @@ exports.handlePost = async(req,res,next)=>{
             }
         }
         var largestChar = largestCharacter(charArray)
-        
+        var largestCharArray = []
+        largestCharArray.push(largestChar)
         res.status(200).json({
             is_success:true,
             user_id:"boyapati_jane_prakeerth_reddy_06062002",
@@ -53,10 +54,11 @@ exports.handlePost = async(req,res,next)=>{
             roll_number:"RA2011003010276",
             numbers:numArray,
             alphabets:charArray,
-            highest_alphabet :[largestChar]
+            highest_alphabet :largestCharArray
         })
     }catch(err){
         res.status(404).json({
+            is_success:false,
             message:err
         })
     }
