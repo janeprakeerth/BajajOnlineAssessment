@@ -23,7 +23,11 @@ app.use(express.json())
 
 
 app.use('/',handleRouter)
-
+app.all('*',(req,res)=>{
+    res.status(404).json({
+        message:"Pleach check your route"
+    })
+})
 const server = app.listen(PORT,()=>{
     console.log(`Listening on Port ${PORT}`)
 })
